@@ -1,5 +1,5 @@
 # Rules of the Game:
-[Sorce](https://www.cs.nmsu.edu/~bdu/TA/487/brules.htm)
+[Source](https://www.cs.nmsu.edu/~bdu/TA/487/brules.htm)
 ## Game Objective
 The object of Battleship is to try and sink all of the other player's ships
 before they sink all of your ships. All of the other player's ships are
