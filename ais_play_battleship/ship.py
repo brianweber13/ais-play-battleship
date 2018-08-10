@@ -16,7 +16,7 @@ class Ship:
                         occupied_squares (list of tuple): ship's location on
                                     the board.
                         length (int): size of ship
-                     Optional attributes: 
+                     Optional attributes:
                         placed (bool): whether or not ship has been placed
                         sunk (bool): whether or not ship has been sunk
 
@@ -41,7 +41,7 @@ class Ship:
     def check_for_hits(self, coordinate):
         """ checks if a square is a hit on THIS SHIP. If it is, removes that
         square from unhit_squares.
- 
+
         Args:
             coordinate (tuple): location to check
         """
@@ -66,56 +66,3 @@ class Ship:
         info += 'Sunk:             ' + str(self.sunk) + '\n'
         info += 'Placed:           ' + str(self.placed)
         return info
-
-# tests: will be run by running this script from the command line
-def main():
-    """ create a test ship, and then do the following:
-
-    - print it
-    - shoot it (expect a hit)
-    - shoot it again (expect a miss)
-    - check if it's sunk (expect it to not be sunk)
-    - shoot it until it sinks
-    - check if it's sunk (expect it to be sunk)
-
-    Ship.placed is not tested because that is only used in game.py
-    """
-    test_ship = Ship({
-        'name': 'carrier',
-        'length': 5,
-        'occupied_squares': set([(0, 0), (1, 0), (2, 0), (3, 0), (4, 0)]),
-        })
-    print('Original Ship: ')
-    print(test_ship)
-    print('')
-
-    print('shooting ship at 3, 0 (will output true if this is a hit.)')
-    print(test_ship.check_for_hits((3, 0)))
-    print(test_ship)
-    print('')
-
-    print("""shooting ship at 3, 0 (will output true, but not change
-            unhit_squares.)""")
-    print(test_ship.check_for_hits((3, 0)))
-    print(test_ship)
-    print('')
-
-    print('is ship sunk?')
-    print('method says:    ', test_ship.check_if_sunk())
-    print('attribute says: ', test_ship.sunk)
-    print('')
-
-    print('sinking the ship!')
-    test_ship.check_for_hits((0, 0))
-    test_ship.check_for_hits((1, 0))
-    test_ship.check_for_hits((2, 0))
-    test_ship.check_for_hits((4, 0))
-    print(test_ship)
-    print('')
-
-    print('is ship sunk?')
-    print('method says:    ', test_ship.check_if_sunk())
-    print('attribute says: ', test_ship.sunk)
-
-if __name__ == '__main__':
-    main()
