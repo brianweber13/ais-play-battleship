@@ -2,7 +2,7 @@
 
 from copy import deepcopy
 
-class Ship:
+class Ship(object):
     """ describes one ship in the game """
 
     # constructor
@@ -15,18 +15,16 @@ class Ship:
                                     or 'battleship'
                         occupied_squares (list of tuple): ship's location on
                                     the board.
-                        length (int): size of ship
                      Optional attributes:
                         placed (bool): whether or not ship has been placed
                         sunk (bool): whether or not ship has been sunk
 
-                     unhit_squares is constructed
-                     from occupied_squares, and it shrinks as the ship is
-                     hit. When it is empty, the ship has sunk.
+                     unhit_squares is constructed from occupied_squares, and it
+                     shrinks as the ship is hit. When it is empty, the ship has
+                     sunk.
         """
 
         self.name = ship_info['name']
-        self.length = ship_info['length']
         self.occupied_squares = ship_info['occupied_squares']
         self.unhit_squares = deepcopy(self.occupied_squares)
         if hasattr(ship_info, 'sunk'):
@@ -60,7 +58,6 @@ class Ship:
     # happen.
     def __str__(self):
         info = 'Name:             ' + str(self.name) + '\n'
-        info += 'Length:           ' + str(self.length) + '\n'
         info += 'Occupied Squares: ' + str(self.occupied_squares) + '\n'
         info += 'Un-hit Squares:   ' + str(self.unhit_squares) + '\n'
         info += 'Sunk:             ' + str(self.sunk) + '\n'
