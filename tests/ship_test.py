@@ -12,7 +12,6 @@ class ShipTestCase(unittest.TestCase):
     def setUp(self):
         self.test_ship = ais_play_battleship.ship.Ship({
             'name': 'carrier',
-            'length': 5,
             'occupied_squares': set([(0, 0), (1, 0), (2, 0), (3, 0), (4, 0)]),
             })
 
