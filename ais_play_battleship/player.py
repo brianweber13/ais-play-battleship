@@ -11,36 +11,21 @@ SQUARE_HIT   = 3
 SQUARE_SUNK  = 4
 
 class Player:
-    def __init__(self, board_size, ships):
-        self.board =
+    def __init__(self, ships, board_size=10):
+        """ 
+        Keyword arguments
+        ships (list): all the ships this player has.
+        board_size (int): size of board (board sizes much match between
+            players. All boards are square)
+        """
         # radar is what you know about the enemy. This is where known hits and
         # misses are marked
-        self.radar =
-        self.ships =
-        self.all_ships_are_sunk =
+        self.board, self.radar = [[SQUARE_EMPTY] * board_size] * board_size
+        self.ships = ships
+        self.all_ships_are_sunk = False
 
     # def all_ships_are_sunk(self):
     #     for ship in self.ships:
     #         if (ship.sunk == False):
     #             return False
     #     return True
-
-# tests go here
-def main():
-    test_player = Player(10, [Ship({
-                                    'name': 'carrier',
-                                    'length': 5,
-                                    'occupied_squares': set([(0, 0), (1, 0),
-                                                             (2, 0), (3, 0),
-                                                             (4, 0)]),
-                                    }),
-                              Ship({
-                                    'name': 'battleship',
-                                    'length': 4,
-                                    'occupied_squares': set([(0, 1), (1, 1),
-                                                             (2, 1), (3, 1),
-                                                             (4, 1)]),
-                                    })])
-
-if __name__ == '__main__' :
-    main()
